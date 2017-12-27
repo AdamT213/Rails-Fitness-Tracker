@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227202831) do
+ActiveRecord::Schema.define(version: 20171227221128) do
+
+  create_table "exercises", force: :cascade do |t|
+    t.integer "sets"
+    t.integer "reps"
+    t.string  "target"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +36,10 @@ ActiveRecord::Schema.define(version: 20171227202831) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "workout_routines", force: :cascade do |t|
+    t.integer "split_length"
+    t.string  "difficulty"
+  end
 
 end
