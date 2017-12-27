@@ -5,8 +5,8 @@
           <li>Signed in as <%= current_user.email %></li>
           <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to 'sign in', new_user_session_path %></li>
-          <%= link_to('Log in with Google!', '/users/auth/google') %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%= link_to('Log in with Google', '/users/auth/google') %>
           <li><%= link_to 'Sign up', new_user_registration_path %></li>
       <% end %>
     </ul>
