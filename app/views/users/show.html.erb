@@ -1,0 +1,24 @@
+<ul>
+<% @user.goals.each do |goal| %>
+  <li><%= goal.description %></li>
+  <li><%= goal.status %></li>
+<% end %>
+
+<% @user.fitness_plans.each do |plan| %>
+<% if @user == current_user %>
+  <% link_to "Edit your fitness_plan", edit_fitness_plan_path %>
+<% end %>
+  <%= plan.name %>
+  <%= plan.category %>
+  <%= plan.difficulty %>
+  <%= plan.split_length %>
+  <% plan.exercises.each do |exercise| %>
+  <ol>
+    <li><%= exercise.name %></li>
+    <li><%= exercise.target %></li>
+    <li><%= exercise.sets %></li>
+    <li><%= exercise.reps %></li>
+  </ol>
+  <% end %>
+  <% end %>
+</ul>
