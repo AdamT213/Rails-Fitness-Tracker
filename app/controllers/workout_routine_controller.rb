@@ -13,17 +13,17 @@ class WorkoutRoutineController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @workout_routine = WorkoutRoutine.find(params[:id])
   end
 
-  def index 
+  def index
     @workout_routines = WorkoutRoutine.all
   end
 
   private
 
   def workout_routine_params
-    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category :exercise_ids => [])
+    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [])
   end
 end

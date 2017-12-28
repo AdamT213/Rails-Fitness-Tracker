@@ -1,3 +1,6 @@
+<% if user_signed_in %>
+  <%= link_to "Customize and save this workout routine!", new_fitness_plan_path %>
+<% end %>
 <%= @workout_routine.name %>
 <%= @workout_routine.category %>
 <%= @workout_routine.difficulty %>
