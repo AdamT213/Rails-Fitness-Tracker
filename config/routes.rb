@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :exercises, only: [:new, :create]
 
 
-root 'welcome#home'
+root 'workout_routines#index'
 
 end
