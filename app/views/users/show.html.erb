@@ -1,4 +1,5 @@
 <ul>
+  <li><%= @user.bio %></li>
 <% @user.goals.each do |goal| %>
   <li><%= goal.description %></li>
   <li><%= goal.status %></li>
@@ -8,10 +9,10 @@
 <% if @user == current_user %>
   <% link_to "Edit your fitness_plan", edit_fitness_plan_path %>
 <% end %>
-  <%= plan.name %>
-  <%= plan.category %>
-  <%= plan.difficulty %>
-  <%= plan.split_length %>
+  <li><%= plan.name %></li>
+  <li><%= plan.category %></li>
+  <li><%= plan.difficulty %></li>
+  <li><%= plan.split_length %></li>
   <% plan.exercises.each do |exercise| %>
   <ol>
     <li><%= exercise.name %></li>
