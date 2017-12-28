@@ -13,13 +13,6 @@
   <li><%= plan.category %></li>
   <li><%= plan.difficulty %></li>
   <li><%= plan.split_length %></li>
-  <% plan.exercises.each do |exercise| %>
-  <ol>
-    <li><%= exercise.name %></li>
-    <li><%= exercise.target %></li>
-    <li><%= exercise.sets %></li>
-    <li><%= exercise.reps %></li>
-  </ol>
-  <% end %>
+  <li><% link_to "View Exercises", fitness_plan_path(plan) %></li>
   <% end %>
 </ul>

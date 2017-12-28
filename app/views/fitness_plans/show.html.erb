@@ -1,0 +1,8 @@
+<% @plan.exercises.each do |exercise| %>
+<ol>
+  <li><%= exercise.name %></li>
+  <li><%= exercise.target %></li>
+  <li><%= exercise.sets %></li>
+  <li><%= exercise.reps %></li>
+</ol>
+<% end %>

@@ -12,6 +12,18 @@ class FitnessPlanController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def show
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @plan = @user.fitness_plans.find_by(id: params[:id])
+      if !@plan
+        flash[:alert] = "Fitness plan not found"
+        redirect_to user_path(@user)
+      end
+    else
+      @plan = FitnessPlan.find(params[:id])
+    end
+
   def edit
     workout = current_user.fitness_plans.find[:id]
   end
