@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :fitness_plans, only: [:new, :create, :show, :edit, :update]
+  resources :fitness_plans
 
   resources :goals, only: [:new, :create, :show, :delete]
 
