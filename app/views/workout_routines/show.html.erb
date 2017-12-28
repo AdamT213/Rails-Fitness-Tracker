@@ -1,0 +1,12 @@
+<%= @workout_routine.name %>
+<%= @workout_routine.category %>
+<%= @workout_routine.difficulty %>
+<%= @workout_routine.split_length %>
+<% @workout_routine.exercises.each do |exercise| %>
+<ol>
+  <li><%= exercise.name %></li>
+  <li><%= exercise.target %></li>
+  <li><%= exercise.sets %></li>
+  <li><%= exercise.reps %></li>
+</ol>
+<% end %>

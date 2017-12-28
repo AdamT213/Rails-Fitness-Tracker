@@ -1,6 +1,6 @@
 Workout Routines
 
-<% @workout_routines.sort.each do |routine| %>
+<% @workout_routines.sort_by(category).each do |routine| %>
   <ul>
   <li><%= routine.name %></li>
   <li><%= routine.split_length %></li>
