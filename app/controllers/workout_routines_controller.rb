@@ -1,4 +1,4 @@
-class WorkoutRoutineController < ApplicationController
+class WorkoutRoutinesController < ApplicationController
 
   def new
     @workout_routine = WorkoutRoutine.new
