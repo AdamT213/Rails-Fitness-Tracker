@@ -24,6 +24,6 @@ class WorkoutRoutineController < ApplicationController
   private
 
   def workout_routine_params
-    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :exercise_ids => [])
+    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category :exercise_ids => [])
   end
 end
