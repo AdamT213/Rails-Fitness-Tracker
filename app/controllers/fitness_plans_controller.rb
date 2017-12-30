@@ -1,4 +1,4 @@
-class FitnessPlansController < ApplicationController
+class FitnessPlanController < ApplicationController
 
   def new
   end
@@ -49,5 +49,4 @@ class FitnessPlansController < ApplicationController
     def workout_params
       params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [])
     end
-  end
 end

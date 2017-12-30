@@ -1,10 +1,10 @@
-<% if user_signed_in %>
+<% if user_signed_in? %>
   <%= link_to "Customize and save this workout routine!", new_fitness_plan_path %>
 <% end %>
-<%= @workout_routine.name %>
-<%= @workout_routine.category %>
-<%= @workout_routine.difficulty %>
-<%= @workout_routine.split_length %>
+<li>Name: <%= @workout_routine.name %></li>
+<li>Category: <%= @workout_routine.category %></li>
+<li>Difficulty: <%= @workout_routine.difficulty %></li>
+<li>Days: <%= @workout_routine.split_length %></li>
 <% @workout_routine.exercises.each do |exercise| %>
 <ol>
   <li><%= exercise.name %></li>

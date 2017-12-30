@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229235815) do
+ActiveRecord::Schema.define(version: 20171230004203) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer "sets"
     t.integer "reps"
     t.string  "target"
     t.string  "name"
+    t.integer "workout_routine_id"
   end
 
   create_table "fitness_plans", force: :cascade do |t|
