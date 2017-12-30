@@ -6,10 +6,10 @@
 <li>Difficulty: <%= @workout_routine.difficulty %></li>
 <li>Days: <%= @workout_routine.split_length %></li>
 <% @workout_routine.exercises.each do |exercise| %>
-<ol>
+<ul>
   <li><%= exercise.name %></li>
   <li><%= exercise.target %></li>
   <li><%= exercise.sets %></li>
   <li><%= exercise.reps %></li>
-</ol>
+</ul>
 <% end %>
