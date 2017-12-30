@@ -1,12 +1,14 @@
-class Goals_Controller.rb
+class GoalsController < ApplicationController
 
   def new
+    @goal = Goal.new
   end
 
   def create
-    @goal = goal.create(goal_params)
+    @goal = Goal.create(goal_params)
     if @goal.save
-      redirect_to user_path(@goal.user)
+      current_user.goals << @goal
+      redirect_to user_path(current_user)
     else
       flash[:alert] = "There was a problem saving your goal. Please try again."
       render :new
