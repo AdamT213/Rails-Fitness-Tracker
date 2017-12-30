@@ -3,7 +3,11 @@
   <%= link_to "Create New Fitness Goal", new_goal_path %>
 <% @user.goals.each do |goal| %>
   <li><%= goal.description %></li>
-  <li><%= goal.status %></li>
+  <% if goal.status == true %>
+    <li><%= "Accomplished" %></li>
+  <% else %>
+    <li><%= "In Progress" %></li>
+  <% end %>
 <% end %>
 
 <% @user.fitness_plans.each do |plan| %>
