@@ -1,5 +1,9 @@
 Workout Routines
 
+<% if current_user %>
+  <%= link_to "Create a new workout routine", new_workout_routine_path %>
+<% end %>
+
 <% @workout_routines.each do |routine| %>
   <ul>
   <li><%= routine.name %></li>
