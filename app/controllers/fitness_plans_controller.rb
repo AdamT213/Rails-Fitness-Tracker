@@ -1,6 +1,7 @@
-class FitnessPlanController < ApplicationController
+class FitnessPlansController < ApplicationController
 
   def new
+    @workout_routine = WorkoutRoutine.new
   end
 
   def create
@@ -23,6 +24,7 @@ class FitnessPlanController < ApplicationController
     else
       @plan = FitnessPlan.find(params[:id])
     end
+  end
 
   def edit
     workout = current_user.fitness_plans.find[:id]

@@ -1,2 +1,12 @@
 Customize This Workout Plan to Meet Your Needs
-<%= render partial: "/workouts/workout", locals: {workout_routine: @workout_routine} %>
+
+<% @workout_routine.exercises.each do |exercise| %>
+<ol>
+  <li><%= exercise.name %></li>
+  <li><%= exercise.target %></li>
+  <li><%= exercise.sets %></li>
+  <li><%= exercise.reps %></li>
+</ol>
+<% end %>
+
+<%= render partial: "/workout_routines/workout", locals: {workout_routine: @workout_routine} %>
