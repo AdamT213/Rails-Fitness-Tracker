@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228052241) do
+ActiveRecord::Schema.define(version: 20171229235815) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer "sets"
@@ -46,10 +46,14 @@ ActiveRecord::Schema.define(version: 20171228052241) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "bio"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid"
 
   create_table "workout_routines", force: :cascade do |t|
     t.integer "split_length"
