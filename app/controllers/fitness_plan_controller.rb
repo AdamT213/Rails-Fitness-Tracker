@@ -23,6 +23,7 @@ class FitnessPlansController < ApplicationController
     else
       @plan = FitnessPlan.find(params[:id])
     end
+  end
 
   def edit
     workout = current_user.fitness_plans.find[:id]
@@ -46,6 +47,7 @@ class FitnessPlansController < ApplicationController
   end
 
   private
+
     def workout_params
       params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [])
     end
