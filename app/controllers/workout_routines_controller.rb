@@ -15,7 +15,7 @@ class WorkoutRoutinesController < ApplicationController
   end
 
   def create
-    @workout_routine = WorkoutRoutine.create(workout_routine_params)
+    @workout_routine = WorkoutRoutine.find_or_create_by(workout_routine_params[:name])
     if @workout_routine.save
       redirect_to workout_routine_path(@workout_routine)
     else
@@ -35,6 +35,6 @@ class WorkoutRoutinesController < ApplicationController
 
   def workout_routine_params
     params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [],
-     exercises_attributes: [:name, :target, :sets, :reps])
+    exercises_attributes: [:name, :target, :sets, :reps])
   end
 end
