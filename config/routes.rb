@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :fitness_plans
 
-  resources :goals, only: [:new, :create, :show, :delete]
+  resources :goals, only: [:new, :create]
+
+  get '/goals/accomplish'
+
+  post '/goals/accomplish'
 
   resources :workout_routines do
 

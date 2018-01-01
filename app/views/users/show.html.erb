@@ -7,6 +7,7 @@
     <li><%= "Accomplished" %></li>
   <% else %>
     <li><%= "In Progress" %></li>
+    <%= link_to "Mark goal as accomplished", goals_accomplish_path %>
   <% end %>
 <% end %>
 

@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   <%= link_to "Customize and save this workout routine!", new_fitness_plan_path %>
+  <%= link_to "View your Personalized Fitness Tracker", user_path(current_user) %>
 <% end %>
 <li>Name: <%= @workout_routine.name %></li>
 <li>Category: <%= @workout_routine.category %></li>

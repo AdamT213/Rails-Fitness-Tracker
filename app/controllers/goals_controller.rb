@@ -15,6 +15,13 @@ class GoalsController < ApplicationController
     end
   end
 
+  def accomplish
+    @goal = Goal.find(params[:id])
+    @goal.accomplish_goal
+    @goal.save
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def goal_params
