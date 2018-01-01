@@ -2,6 +2,16 @@ class WorkoutRoutinesController < ApplicationController
 
   def new
     @workout_routine = WorkoutRoutine.new
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
   end
 
   def create
@@ -24,6 +34,7 @@ class WorkoutRoutinesController < ApplicationController
   private
 
   def workout_routine_params
-    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [], exercises_attributes: [:name])
+    params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [],
+     exercises_attributes: [:name, :target, :sets, :reps])
   end
 end
