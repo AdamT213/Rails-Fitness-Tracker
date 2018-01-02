@@ -18,6 +18,14 @@ class ExercisesController < ApplicationController
     end
   end
 
+  def index
+    @exercises = Exercise.all
+  end
+
+  def show
+    @exercise = Exercise.find(params[:id])
+  end
+
   private
 
   def exercise_params

@@ -15,6 +15,7 @@ class WorkoutRoutinesController < ApplicationController
   end
 
   def create
+    binding.pry
     @workout_routine = WorkoutRoutine.create(workout_routine_params)
     if @workout_routine.save
       redirect_to workout_routine_path(@workout_routine)

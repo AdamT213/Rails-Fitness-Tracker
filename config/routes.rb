@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :exercises, only: [:new, :create]
+  resources :exercises, only: [:new, :create, :show, :index]
 
 
 root 'workout_routines#index'
