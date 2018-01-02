@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
       current_user.goals << @goal
       redirect_to user_path(current_user)
     else
-      flash[:alert] = "There was a problem saving your goal. Please try again."
+      flash[:notice] = "There was a problem saving your goal. Please try again."
       render :new
     end
   end
