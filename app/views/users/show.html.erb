@@ -1,6 +1,8 @@
 <ul>
   <li><%= @user.bio %></li>
-  <%= link_to "Create New Fitness Goal", new_goal_path %>
+  <% if @user == current_user %>
+    <%= link_to "Create New Fitness Goal", new_goal_path %>
+  <% end %>
 <% @user.goals.each do |goal| %>
   <li><%= goal.description %></li>
   <% if goal.status == true %>

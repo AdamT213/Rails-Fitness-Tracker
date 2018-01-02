@@ -1,7 +1,8 @@
 class FitnessPlansController < ApplicationController
 
   def new
-    @workout_routine = WorkoutRoutine.new
+    @workout_routine = current_workout_routine
+    @fitness_plan = FitnessPlan.new
   end
 
   def create
@@ -49,6 +50,7 @@ class FitnessPlansController < ApplicationController
 
   private
     def workout_params
-      params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category, :exercise_ids => [])
+      params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category,
+      exercises_attributes: [:name, :target, :sets, :reps], :exercise_ids => [])
     end
 end

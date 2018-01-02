@@ -26,6 +26,7 @@ class WorkoutRoutinesController < ApplicationController
 
   def show
     @workout_routine = WorkoutRoutine.find(params[:id])
+    @workout_routine = current_workout_routine
   end
 
   def index
