@@ -14,13 +14,12 @@
 <% end %>
 
 <% @user.fitness_plans.each do |plan| %>
-<% if @user == current_user %>
-  <%= link_to "Edit your fitness_plan", edit_fitness_plan_path %>
 <% end %>
-  <li><%= plan.name %></li>
-  <li><%= plan.category %></li>
-  <li><%= plan.difficulty %></li>
-  <li><%= plan.split_length %></li>
+  <li>Name: <%= plan.workout_routine.name %></li>
+  <li>Length(days): <%= plan.duration %></li>
+  <li>Category: <%= plan.workout_routine.category %></li>
+  <li>Difficulty: <%= plan.workout_routine.difficulty %></li>
+  <li>Days per Week: <%= plan.workout_routine.split_length %></li>
   <li><%= link_to "View Exercises", fitness_plan_path(plan) %></li>
   <% end %>
 </ul>

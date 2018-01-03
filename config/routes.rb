@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:show]
 
-  resources :fitness_plans
-
   resources :goals, only: [:new, :create]
 
   get '/goals/accomplish'
@@ -20,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :exercises, only: [:new, :create, :show, :index]
 
+  resources :fitness_plans
 
 root 'workout_routines#index'
 

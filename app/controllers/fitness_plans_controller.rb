@@ -1,17 +1,23 @@
 class FitnessPlansController < ApplicationController
 
   def new
-    @workout_routine = params[:workout_routine_id]
     @fitness_plan = FitnessPlan.new
   end
 
   def create
-    workout_routine = params[:workout_routine_id]
-    if current_user
-      current_user.fitness_plans << workout_routine
+    @fitness_plan = FitnessPlan.create(fitness_plan_params)
+    @fitness_plan.user_id = current_user.id
+    current_user.fitness_plans << @fitness_plan
+    if params[:workout_routine_id]
+       @fitness_plan.workout_routine = WorkoutRoutine.find[:workout_routine_id]
+       redirect_to user_path(current_user)
+    else
+      if @fitness_plan.save
+        redirect_to user_path(current_user)
+      else
+        render :new
+      end
     end
-    current_user.save
-    redirect_to user_path(current_user)
   end
 
   def show
@@ -49,8 +55,7 @@ class FitnessPlansController < ApplicationController
   end
 
   private
-    def workout_params
-      params.require(:workout_routine).permit(:name, :split_length, :difficulty, :category,
-      exercises_attributes: [:name, :target, :sets, :reps], :exercise_ids => [])
+    def fitness_plan_params
+      params.require(:fitness_plan).permit(:user_id, :workout_routine_id, :duration)
     end
 end

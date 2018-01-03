@@ -1,10 +1,7 @@
 Save This Workout Plan
 
-<% @workout_routine.exercises.each do |exercise| %>
-<ol>
-  <li><%= exercise.name %></li>
-  <li><%= exercise.target %></li>
-  <li><%= exercise.sets %></li>
-  <li><%= exercise.reps %></li>
-</ol>
+<%= form_for @fitness_plan do |f| %>
+  <%= f.label :duration %>
+  <%= f.text_field :duration %><br />
+  <%= f.submit %>
 <% end %>
