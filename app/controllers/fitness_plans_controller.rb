@@ -8,6 +8,7 @@ class FitnessPlansController < ApplicationController
     @fitness_plan = FitnessPlan.create(fitness_plan_params)
     @fitness_plan.user_id = current_user.id
     current_user.fitness_plans << @fitness_plan
+    binding.pry
     if params[:workout_routine_id]
        @fitness_plan.workout_routine = WorkoutRoutine.find[:workout_routine_id]
        redirect_to user_path(current_user)
