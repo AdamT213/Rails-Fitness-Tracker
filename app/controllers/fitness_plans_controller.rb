@@ -1,7 +1,7 @@
 class FitnessPlansController < ApplicationController
 
   def new
-    @workout_routine = current_workout_routine
+    @workout_routine = params[:workout_routine_id]
     @fitness_plan = FitnessPlan.new
   end
 

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :workout_routines do
 
     resources :exercises, only: [:new, :create]
+    resources :fitness_plans
 
   end
 
