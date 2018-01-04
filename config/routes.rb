@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   resources :goals, only: [:new, :create]
 
-  get '/goals/accomplish'
-
-  post '/goals/accomplish'
+  patch '/goals/:id/accomplish', to: 'goals#accomplish', as: :goals_accomplish
 
   resources :workout_routines do
 

@@ -1,6 +1,7 @@
 Save This Workout Plan
 
 <%= form_for @fitness_plan do |f| %>
+  <%= f.hidden_field :workout_routine_id, value: @workout_routine_id  %>
   <%= f.label :duration %>
   <%= f.text_field :duration %><br />
   <%= f.submit %>

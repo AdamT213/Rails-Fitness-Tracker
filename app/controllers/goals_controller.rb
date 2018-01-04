@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
   def accomplish
     @goal = Goal.find(params[:id])
     @goal.accomplish_goal
-    @goal.save
+    current_user.save
     redirect_to user_path(current_user)
   end
 

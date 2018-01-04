@@ -3,5 +3,6 @@ class Goal < ActiveRecord::Base
 
   def accomplish_goal
     self.status = true
+    self.save
   end
 end
