@@ -1,18 +1,20 @@
 <ul>
   <h2>Bio:</h2>
-  <li><%= @user.bio %></li>
+  <li><%= @user.bio %></li><br />
   <% if @user == current_user %>
-    <%= link_to "Update your personal bio", edit_user_path(@user) %>
-    <%= link_to "Create New Fitness Goal", new_goal_path %>
+    <%= link_to "Update your personal bio", edit_user_path(@user) %><br />
+    <%= link_to "Create New Fitness Goal", new_goal_path %><br />
   <% end %>
   <h2>Goals:</h2>
 <% @user.goals.each do |goal| %>
   <li><%= goal.description %></li>
   <% if goal.status %>
-    <li><%= "Accomplished" %></li>
+    <li><%= "Accomplished" %></li><br />
   <% else %>
-    <li><%= "In Progress" %></li>
-    <%= link_to "Mark goal as accomplished", goals_accomplish_path(goal), method: :patch %>
+    <li><%= "In Progress" %></li><br />
+    <% if @user == current_user %>
+      <%= link_to "Mark goal as accomplished", goals_accomplish_path(goal), method: :patch %>
+    <% end %>
   <% end %>
 <% end %><br />
   <h2>Fitness Plans:</h2>
