@@ -34,12 +34,6 @@ class FitnessPlansController < ApplicationController
     end
   end
 
-  def destroy
-    fitness_plan = current_user.fitness_plans.find[:id]
-    current_user.fitness_plans.delete(fitness_plan)
-    redirect_to user_path(current_user)
-  end
-
   private
     def fitness_plan_params
       params.require(:fitness_plan).permit(:user_id, :workout_routine_id, :duration)
