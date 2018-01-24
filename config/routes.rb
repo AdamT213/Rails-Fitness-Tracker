@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   patch '/goals/:id/accomplish', to: 'goals#accomplish', as: :goals_accomplish
 
-  resources :workout_routines, only: [:new, :create, :index]  do
+  resources :workout_routines  do
 
     resources :exercises, only: [:new, :create]
     resources :fitness_plans
