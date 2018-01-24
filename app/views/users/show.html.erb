@@ -1,4 +1,7 @@
 <ul>
+  <% if @user.avatar_file_size != nil %>
+    <%= image_tag @user.avatar.url %>
+  <% end %>
   <h2>Bio:</h2>
   <li><%= @user.bio %></li><br />
   <% if @user == current_user %>

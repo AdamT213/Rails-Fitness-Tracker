@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :goals
   has_many :fitness_plans
+  has_attached_file :avatar, styles: { thumb: "100x100>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,4 +1,7 @@
-<%= @users.each do |user| %>
+<% @users.each do |user| %>
+  <% if user.avatar_file_size != nil %>
+    <%= image_tag user.avatar.url(:thumb) if user.avatar %>
+  <% end %>
   <%= user.email %><br />
   <%= user.bio %><br />
   <%= link_to "View detailed info", user_path(user) %>
