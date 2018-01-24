@@ -1,7 +1,17 @@
 class WorkoutRoutinesController < ApplicationController
 
   def new
-    @workout_routine = WorkoutRoutine.new
+    @workout_routine = WorkoutRoutine.new 
+    @workout_routine.exercises.build 
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
+    @workout_routine.exercises.build
   end
 
   def create

@@ -1,6 +1,6 @@
 class Exercise < ActiveRecord::Base
   belongs_to :workout_routine 
-  validates :name, presence: true
+  
   def workout_routine_name 
     self.try(:workout_routine).try(:name)
   end
