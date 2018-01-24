@@ -11,7 +11,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
-gem 'paperclip'
+gem 'paperclip' 
+gem 'active_model_serializers'
 
 group :test, :development do
   gem "rspec-rails"
