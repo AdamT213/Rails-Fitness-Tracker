@@ -16,7 +16,8 @@ class WorkoutRoutinesController < ApplicationController
   end
 
   def show
-    @workout_routine = WorkoutRoutine.find(params[:id])
+    @workout_routine = WorkoutRoutine.find(params[:id]) 
+    render json: @workout_routine
   end
 
   def index
