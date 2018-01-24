@@ -10,9 +10,9 @@ Workout Routines
 <% @workout_routines.each do |routine| %>
   <ul>
   <li>Name: <%= routine.name %></li>
-  <li>Days <%= routine.split_length %></li>
-  <li>Difficulty <%= routine.difficulty %></li> 
+  <li>Days: <%= routine.split_length %></li>
+  <li>Difficulty: <%= routine.difficulty %></li> 
   <button class= "exercises" id= "<%= routine.id %>">View Exercises</button>
-  <div id= "workoutshow"></div>
+  <div class= "workoutshow" id= "<%= routine.id %>"></div>
 </ul>
 <% end %>
