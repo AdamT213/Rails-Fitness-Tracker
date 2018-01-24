@@ -1,6 +1,7 @@
 class Exercise < ActiveRecord::Base
-  belongs_to :workout_routine
-  def workout_routine_name
+  belongs_to :workout_routine 
+  validates :name, uniqueness: true
+  def workout_routine_name 
     self.try(:workout_routine).try(:name)
   end
 
