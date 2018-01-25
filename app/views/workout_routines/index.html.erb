@@ -7,12 +7,15 @@ Workout Routines
 
   <%= link_to "View User profiles", users_path %><br />
 
-<% @workout_routines.each do |routine| %>
+<% @workout_routines.each do |routine| %> 
+  <% if user_signed_in? %>
+    <%= link_to "Save this workout routine!", new_workout_routine_fitness_plan_path(routine) %>
+  <% end %>
   <ul>
   <li>Name: <%= routine.name %></li>
   <li>Days: <%= routine.split_length %></li>
   <li>Difficulty: <%= routine.difficulty %></li> 
   <button class= "exercises" id= "<%= routine.id %>">View Exercises</button>
-  <div class= "workoutshow" id= "<%= routine.id %>"></div>
+  <div class= "workoutshow" id= "<%= routine.id %>"></div> 
 </ul>
 <% end %>

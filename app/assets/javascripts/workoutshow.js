@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $(".exercises").on('click', function(e) { 
         $.get("/workout_routines/" + e.target.id, function(data){ 
-            debugger;
             $("div#"+data.id + ".workoutshow").append("<li>" + "Category: " + data["category"] + "</li>")  
                 .append("Exercises:" + "<br>" + "<ul>")
                 for (let i=0; i < data["exercises"].length; i++) { 
