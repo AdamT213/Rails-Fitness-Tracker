@@ -32,6 +32,11 @@ class FitnessPlansController < ApplicationController
     else
       @plan = FitnessPlan.find(params[:id])
     end
+  end 
+  
+  def index 
+    @plans = FitnessPlan.all 
+    render json: @plans 
   end
 
   private
