@@ -29,3 +29,40 @@
   </ul>
   <%= f.submit %>
 <% end %>
+
+<div id="newRoutine">
+  Name: <h2 id="workoutName"></h2>
+  Category: <h2 id="workoutCategory"></h2> 
+  Difficulty: <h2 id="workoutDifficulty"></h2> 
+  Days per Week: <h2 id="workoutSplitLength"></h2> 
+  <h3 id= "workoutExercises">Exercises:</h3><br />
+  
+</div>
+ 
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+ 
+      var values = $(this).serialize();
+ 
+      var posting = $.post('/workout_routines', values);
+ 
+      posting.done(function(data) { 
+        console.log(data)
+        var workout = data;
+        $("#workoutName").text(workout["name"]);
+        $("#workoutCategory").text(workout["category"]); 
+        $("#workoutDifficulty").text(workout["difficulty"]); 
+        $("#workoutSplitLength").text(workout["split_length"]); 
+        for (let i=0; i<workout["exercises"].length; i++) { 
+          $("#workoutExercises").append("<li>" + "Name:" + workout["exercises"][i]["name"] + "</li>" ) 
+          .append("<li>" + "Target:" + workout["exercises"][i]["target"] + "</li>" ) 
+          .append("<li>" + "Sets:" + workout["exercises"][i]["sets"] + "</li>" ) 
+          .append("<li>" + "Reps:" + workout["exercises"][i]["reps"] + "</li>" ) 
+        }
+      });
+    });
+  });
+</script>

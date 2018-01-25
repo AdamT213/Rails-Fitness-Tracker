@@ -7,12 +7,7 @@ class WorkoutRoutinesController < ApplicationController
 
   def create
     @workout_routine = WorkoutRoutine.create(workout_routine_params)
-    if @workout_routine.save
-      redirect_to workout_routine_path(@workout_routine)
-    else
-      flash[:notice] = "Workout Routine cannot have the same name as an existing routine"
-      render :new
-    end
+    render json: @workout_routine, status: 201
   end
 
   def show
