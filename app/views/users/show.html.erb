@@ -19,7 +19,9 @@
       <%= link_to "Mark goal as accomplished", goals_accomplish_path(goal), method: :patch %>
     <% end %>
   <% end %>
-<% end %><br />
+<% end %><br /> 
+  <button id= "userplans">View Fitness Plans</button> 
+  <div id= "plans"></div>
   <h2>Fitness Plans:</h2>
 <% @user.fitness_plans.each do |plan| %>
   <li>Name: <%= plan.workout_routine.name if plan.workout_routine %></li>
