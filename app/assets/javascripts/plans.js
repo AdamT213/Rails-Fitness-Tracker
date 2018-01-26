@@ -4,7 +4,8 @@ $(document).ready(function(){
         $.get("/fitness_plans", function(data) { 
             for (let i=0; i<data.length; i++) { 
                 if (data[i]["user_id"].toString() === userId) {  
-                    if (data[i]["workout_routine"] !== null) {
+                    if (data[i]["workout_routine"] !== null) { 
+                        
                         $("#plans").append("<li>" + "Name: " + data[i]["workout_routine"]["name"] + "</li>") 
                             .append("<li>" + "Length(days): " + data[i]["duration"] + "</li>")
                             .append("<li>" + "Category: " + data[i]["workout_routine"]["category"] + "</li>") 
