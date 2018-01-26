@@ -1,9 +1,8 @@
 $(document).ready(function(){ 
-    $("#userplans").on('click', function() { 
+    $("#userplans").on('click', function(e) { 
+        debugger;
         $.get("/fitness_plans", function(data) { 
             for (let i=0; i<data.length; i++) { 
-                const userId = $("#userId");
-                debugger;
                 if (data[i]["user_id"] === userId.innerText) { 
                     $("#plans").append("<li>" + "Name: " + data[i]["workout_routine"]["name"] + "</li>") 
                         .append("<li>" + "Length(days): " + data[i]["duration"] + "</li>")
