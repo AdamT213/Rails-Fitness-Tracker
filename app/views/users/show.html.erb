@@ -22,13 +22,4 @@
 <% end %><br /> 
   <button id= "userplans">View Fitness Plans</button> 
   <div id= "plans"></div>
-  <h2>Fitness Plans:</h2>
-<% @user.fitness_plans.each do |plan| %>
-  <li>Name: <%= plan.workout_routine.name if plan.workout_routine %></li>
-  <li>Length(days): <%= plan.duration %></li>
-  <li>Category: <%= plan.workout_routine.category if plan.workout_routine %></li>
-  <li>Difficulty: <%= plan.workout_routine.difficulty if plan.workout_routine %></li>
-  <li>Days per Week: <%= plan.workout_routine.split_length if plan.workout_routine %></li>
-  <li><%= link_to "View Exercises", fitness_plan_path(plan) %></li><br />
-<% end %>
-</ul>
+  

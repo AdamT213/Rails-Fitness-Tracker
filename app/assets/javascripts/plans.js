@@ -1,6 +1,6 @@
 $(document).ready(function(){ 
     $("#userplans").on('click', function(e) { 
-        var userId = e.target.baseURI.match(/\d+$/)[0] 
+        var userId = e.target.baseURI.match(/\d+$/)[0];
         $.get("/fitness_plans", function(data) { 
             for (let i=0; i<data.length; i++) { 
                 if (data[i]["user_id"].toString() === userId) {  
@@ -10,6 +10,7 @@ $(document).ready(function(){
                             .append("<li>" + "Category: " + data[i]["workout_routine"]["category"] + "</li>") 
                             .append("<li>" + "Difficulty: " + data[i]["workout_routine"]["difficulty"] + "</li>") 
                             .append("<li>" + "Days per Week: " + data[i]["workout_routine"]["split_length"] + "</li>") 
+                            .append("<a href= /fitness_plans/" + data[i]["id"] + ">" + "View Exercises" +  "</a>" + "<br>")
                     }
                 }
             }
