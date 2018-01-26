@@ -14,9 +14,9 @@
   <% if goal.status %>
     <li><%= "Accomplished" %></li><br />
   <% else %>
-    <li><%= "In Progress" %></li><br />
+    <li><%= "In Progress" %></li>
     <% if @user == current_user %>
-      <%= link_to "Mark goal as accomplished", goals_accomplish_path(goal), method: :patch %>
+      <%= link_to "Mark goal as accomplished", goals_accomplish_path(goal), method: :patch %><br />
     <% end %>
   <% end %>
 <% end %><br /> 
