@@ -14,6 +14,7 @@ $(document).ready(function(){
         $.get("/workout_routines/" + e.target.id, function(data){ 
             if ($("div#"+data.id + ".workoutshow")[0]["childElementCount"] === 0) { 
                 debugger;
+                var routine = JSON.parse(data)
             $("div#"+data.id + ".workoutshow").append(Routine.template())  
                 .append("Exercises:" + "<br>" + "<ul>")
                 for (let i=0; i < data["exercises"].length; i++) { 
