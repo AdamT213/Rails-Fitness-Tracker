@@ -1,9 +1,8 @@
 function Routine(attributes) { 
-    this.category = attributes.category; 
+    this.category = attributes.category;  
 } 
 
 Routine.prototype.template = function() { 
-    debugger;
     var template = `<li>Category: ${this.category}</li>` 
     return template; 
 }
@@ -13,9 +12,8 @@ $(document).ready(function(){
     $(".exercises").on('click', function(e) { 
         $.get("/workout_routines/" + e.target.id, function(data){ 
             if ($("div#"+data.id + ".workoutshow")[0]["childElementCount"] === 0) { 
-                debugger;
-                var routine = JSON.parse(data)
-            $("div#"+data.id + ".workoutshow").append(Routine.template())  
+                let routine = new Routine(data)
+            $("div#"+data.id + ".workoutshow").append(routine.template())  
                 .append("Exercises:" + "<br>" + "<ul>")
                 for (let i=0; i < data["exercises"].length; i++) { 
                   $("div#"+data.id + ".workoutshow").append("<li>" + "Name: " + data["exercises"][i]["name"] + "</li>") 
