@@ -32,7 +32,6 @@ $(document).ready(function(){
                 .append("Exercises:" + "<br>" + "<ul>")
                 for (let i=0; i < data["exercises"].length; i++) { 
                     let exercise = new Exercise(data["exercises"][i]) 
-                    debugger;
                   $("div#"+data.id + ".workoutshow").append(exercise.template())
                 } 
             }
