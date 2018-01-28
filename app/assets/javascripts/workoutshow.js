@@ -2,9 +2,24 @@ function Routine(attributes) {
     this.category = attributes.category;  
 } 
 
+function Exercise(attributes) { 
+    this.name = attributes.name 
+    this.target = attributes.target 
+    this.sets = attributes.sets 
+    this.reps = attributes.reps
+}
+
 Routine.prototype.template = function() { 
     var template = `<li>Category: ${this.category}</li>` 
     return template; 
+} 
+
+Exercise.prototype.template = function() { 
+    var template = `<li>Name: ${this.name}</li><br /> 
+                    <li>Target: ${this.target}</li><br />
+                    <li>Sets: ${this.sets}</li><br />
+                    <li>Reps: ${this.reps}</li><br />` 
+    return template;
 }
 
 
@@ -16,10 +31,9 @@ $(document).ready(function(){
             $("div#"+data.id + ".workoutshow").append(routine.template())  
                 .append("Exercises:" + "<br>" + "<ul>")
                 for (let i=0; i < data["exercises"].length; i++) { 
-                  $("div#"+data.id + ".workoutshow").append("<li>" + "Name: " + data["exercises"][i]["name"] + "</li>") 
-                    .append("<li>" + "Target: " + data["exercises"][i]["target"] + "</li>")
-                    .append("<li>" + "Sets: " + data["exercises"][i]["sets"] + "</li>")
-                    .append("<li>" + "Reps: " + data["exercises"][i]["reps"] + "</li>" + "</ul>") 
+                    let exercise = new Exercise(data["exercises"][i]) 
+                    debugger;
+                  $("div#"+data.id + ".workoutshow").append(exercise.template())
                 } 
             }
         })
