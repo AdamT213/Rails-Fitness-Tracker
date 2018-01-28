@@ -15,7 +15,7 @@ Routine.prototype.template = function() {
 } 
 
 Exercise.prototype.template = function() { 
-    var template = `<li>Name: ${this.name}</li><br /> 
+    var template = `<h2>Name: ${this.name}</h2><br /> 
                     <li>Target: ${this.target}</li><br />
                     <li>Sets: ${this.sets}</li><br />
                     <li>Reps: ${this.reps}</li><br />` 
