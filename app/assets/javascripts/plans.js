@@ -21,15 +21,34 @@ $(document).ready(function(){
     $("#userplans").on('click', function(e) { 
         var userId = e.target.baseURI.match(/\d+$/)[0];
         $.get("/fitness_plans", function(data) { 
+            $("#plans").append("<button id= 'filter'>Filter Plans</button>") 
             for (let i=0; i<data.length; i++) { 
                 if (data[i]["user_id"].toString() === userId) {  
                     if (data[i]["workout_routine"] !== null) { 
                         let plan = new Plan(data[i])
-                        $("#plans").append(plan.template())
+                        $("#plans").append(plan.template()) 
                             .append("<a href= /fitness_plans/" + data[i]["id"] + ">" + "View Exercises" +  "</a>" + "<br>")
                     }
                 }
             }
+            filterPlans()
         })
     }) 
 })
+function filterPlans() { 
+    $("#filter").on('click', function(e) { 
+        $("#plans").innerText = ""
+        $.get("/fitness_plans", function(res) { 
+                const data = res.filter(routine => routine.workout_routine !== null)
+                const routines = data.filter(routine => routine.workout_routine.category == "strength-building")
+                var userId = e.target.baseURI.match(/\d+$/)[0];
+                for (let i=0; i<routines.length; i++) { 
+                    if (routines[i]["user_id"].toString() === userId) {
+                        let plan = new Plan(routines[i])
+                        $("#plans").append(plan.template()) 
+                            .append("<a href= /fitness_plans/" + routines[i]["id"] + ">" + "View Exercises" +  "</a>" + "<br>") 
+                 }
+            }
+        })
+     }) 
+}
